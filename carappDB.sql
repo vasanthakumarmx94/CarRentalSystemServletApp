@@ -13,6 +13,8 @@ priceperday double not null,
 cardescription varchar(100) not null
 );
 
+select * from cars;
+
 alter table cars add issustatus varchar(30) not null;
 insert into cars values(10,"Lamborghini","STATION WAGON","Tata Motors","Tumakur""m091",500.0,"testing","Available");
 
@@ -70,6 +72,24 @@ address varchar(100) not null
 );
 
 
+create table if not exists users(
+userid int auto_increment primary key,
+name varchar(30) not null,
+mobile varchar(30) not null,
+state varchar(30) not null,
+city varchar(30) not null,
+pincode varchar(10) not null,
+address varchar(100) not null,
+email varchar(30) not null,
+password varchar(30) not null
+);
+
+
+
+
+
+
+
 create table if not exists carbook(
 bookingid int auto_increment primary key,
 carid int not null,
@@ -80,14 +100,18 @@ fromdate varchar(30) not null,
 todate varchar(30) not null,
 pickupaddress varchar(100) not null,
 dropaddress varchar(100) not null,
-userid int not null
+userid int not null,
+amount double not null,
+rturnstatus varchar(30) not null
 );
-alter table carbook add carid int not null;
+alter table carbook add rstatus varchar(30) not null;
 
-select * from user;
+use carapp;
+select * from users;
 select * from carbook;
 select * from cars;
-update cars set issustatus="Available" where cid in(3,4);
+update cars set issustatus="Available" where cid in(8,9,12);
 
+delete from carbook where bookingid in(28,29,30);
 
 

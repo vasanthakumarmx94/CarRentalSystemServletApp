@@ -22,7 +22,9 @@ public class UserDashBoard extends HttpServlet{
 		PrintWriter out=resp.getWriter();
 		
 		HttpSession session = req.getSession();
+		
 		String email=(String)session.getAttribute("email");
+		if(email!=null) {
 		out.print("<!DOCTYPE html>");
 		out.print("<html>");
 		out.println("<head>");
@@ -37,7 +39,7 @@ public class UserDashBoard extends HttpServlet{
 		out.println("</div>");
 		req.getRequestDispatcher("footer.html").include(req, resp);
 		out.close();
-		
+		}
 	}
 	
 }

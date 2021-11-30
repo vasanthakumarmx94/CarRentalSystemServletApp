@@ -40,6 +40,7 @@ protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws S
 		HttpSession session = req.getSession()	;
 		//binding obj into it
 		session.setAttribute("email",email);
+		session.setAttribute("password",password);
 		
 		req.getRequestDispatcher("navuser.html").include(req, resp);
 		req.getRequestDispatcher("usercarousel.html").include(req, resp);
